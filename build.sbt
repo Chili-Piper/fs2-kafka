@@ -262,7 +262,13 @@ lazy val publishSettings =
       tlGitHubDev("bplommer", "Ben Plommer"),
       tlGitHubDev("LMNet", "Yuriy Badalyantc").withEmail("lmnet89@gmail.com"),
       tlGitHubDev("aartigao", "Alan Artigao").withEmail("alanartigao@gmail.com")
-    )
+    ),
+    publishTo := Some(
+      "GCE ChiliPiper Artifact Releases" at "artifactregistry://us-central1-maven.pkg.dev/chilipiper-cloud/chili-artifact-releases"
+    ),
+    publishConfiguration := publishConfiguration.value.withOverwrite(
+      true
+    ),
   )
 
 ThisBuild / mimaBinaryIssueFilters ++= {
